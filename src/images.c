@@ -34,8 +34,8 @@ gfx_rletsprite_t *firefox_sprite[2][4] =   { { fireball_left0 , fireball_left1 ,
 											 { fireball_right0, fireball_right1, firefox_right0, firefox_right1 }, };
 
 // Kong
-gfx_sprite_t *kong_goofy;
-gfx_rletsprite_t *kong_sprite[13] =          { kong_standing, kong_left, kong_holding, kong_right, kong_arm_left, kong_arm_right, kong_climbing_left0, kong_climbing_right0, kong_climbing_left1, kong_climbing_right1, kong_onhead, kong_knockedOut, kong_teeth };
+// gfx_sprite_t *kong_goofy;
+gfx_rletsprite_t *kong_sprite[13] =          { kong_standing, kong_left, kong_holding, kong_right, kong_arm_left, kong_arm_right, kong_climbing_left0, kong_climbing_right0, kong_climbing_left1, kong_climbing_right1, kong_onhead, kong_knockedout, kong_onhead };
 
 gfx_sprite_t *kong_crazy_eye[2] =			 { kong_eye1, kong_eye0 };
 gfx_sprite_t *kong_knockedout_sprite[2] =	 { knockedout_sprite1, knockedout_sprite0 };
@@ -67,9 +67,17 @@ gfx_rletsprite_t *pulley_right[3] =			 { pulley_right0, pulley_right1, pulley_ri
 gfx_rletsprite_t *pulley_left[3]  =			 { pulley_left0 , pulley_left2 , pulley_left1 };
 
 
-static const uint8_t *kong_compressed_images[] = { kong_standing_compressed, kong_left_compressed, kong_holding_compressed, kong_right_compressed, kong_arm_left_compressed, kong_arm_right_compressed, kong_climbing_left0_compressed, kong_climbing_right0_compressed, kong_climbing_left1_compressed, kong_climbing_right1_compressed, kong_onhead_compressed, kong_knockedout_compressed };
+// static const uint8_t *kong_compressed_images[] = { kong_standing_compressed, kong_left_compressed, kong_holding_compressed, kong_right_compressed, kong_arm_left_compressed, kong_arm_right_compressed, kong_climbing_left0_compressed, kong_climbing_right0_compressed, kong_climbing_left1_compressed, kong_climbing_right1_compressed, kong_onhead_compressed, kong_knockedout_compressed };
 
 void decompress_images(void) {
+	//gfx_sprite_t *tmp_ptr;
+	gfx_sprite_t *flip_tmp;
+
+	flip_tmp = gfx_MallocSprite(40, 32);
+
+	kong_sprite[12] = gfx_ConvertMallocRLETSprite(gfx_FlipSpriteX(kong_sprite[10], flip_tmp));
+	free(flip_tmp);
+	//free(tmp_ptr);
 /*	gfx_sprite_t *tmp_ptr;
 	uint8_t i = 0;
 

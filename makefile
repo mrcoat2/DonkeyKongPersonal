@@ -22,7 +22,8 @@ L ?= graphx keypadc fileioc
 SRCDIR ?= src
 OBJDIR ?= obj
 BINDIR ?= bin
-GFXDIR ?= src/gfx
+GFXDIR ?= img
+LTO = NO
 
 # ----------------------------
 # Use OS helper functions (Advanced)
@@ -30,4 +31,4 @@ GFXDIR ?= src/gfx
 
 USE_FLASH_FUNCTIONS ?= YES
 
-include $(CEDEV)/include/.makefile
+include $(shell cedev-config --makefile)

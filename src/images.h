@@ -19,7 +19,7 @@ extern gfx_rletsprite_t *rolling_barrel[2][6];
 extern gfx_rletsprite_t *firefox_sprite[2][4];
 
 // Kong
-extern gfx_sprite_t *kong_goofy;
+// extern gfx_sprite_t *kong_goofy;
 extern gfx_rletsprite_t *kong_sprite[13];
 
 extern gfx_sprite_t *kong_crazy_eye[2];
