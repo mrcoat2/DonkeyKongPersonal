@@ -4,8 +4,8 @@
 #include <stdint.h>
 #include <graphx.h>
 #include "stdlib.h"
-#include "gfx\sprites_gfx.h"
-#include "gfx\rletsprites_gfx.h"
+#include "gfx\gfx.h"
+// #include "gfx\rletsprites_gfx.h"
 
 void decompress_images(void);
 

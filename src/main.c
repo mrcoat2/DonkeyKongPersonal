@@ -41,31 +41,40 @@ game_data_t game_data;
 uint8_t waitTimer = 1;
 uint8_t frameCounter;
 
-const void(*game_state)(void) = credits_screen;
+void(*game_state)(void) = credits_screen;
 
 void main(void) {
 #if DEBUG_MODE
+	dbg_printf("Initialized some things...\n");
 	bool debug = false;
 #endif
 	uint8_t quitDelay = 0;
 
 	srand(rtc_Time());
+	dbg_printf("srand\n");
+
 	gfx_Begin();
+	dbg_printf("gfx_Begin\n");
 
 	gfx_SetClipRegion(48, 16, 272, 239);
+	dbg_printf("gfx_SetClipRegion\n");
+
 	gfx_SetDrawBuffer();
+	dbg_printf("gfx_SetDrawBuffer\n");
 
 	gfx_SetTextBGColor(COLOR_BACKGROUND);
 	gfx_SetFontData(&font_data - 37 * 8);
 	gfx_SetMonospaceFont(8);
 
+	dbg_printf("before decompress_images\n");
 	decompress_images();
+	dbg_printf("decompress_images\n");
 	load_progress();
 
 	// Enable the timer, set it to the 32768 kHz clock, enable an interrupt once it reaches 0, and make it count down
 	timer_Control = TIMER1_ENABLE | TIMER1_32K | TIMER1_0INT | TIMER1_DOWN;
 	timer_1_ReloadValue = timer_1_Counter = (ONE_TICK);
-
+	dbg_printf("Starting game loop...\n");
 	// Game loop
 	for (;;) {
 		kb_Scan();
@@ -74,7 +83,7 @@ void main(void) {
 		increase_difficulty();
 		
 		(*game_state)();
-
+		dbg_printf("Updating game state...\n");
 		if (cinematicProgress == 0)
 				update_screen();
 

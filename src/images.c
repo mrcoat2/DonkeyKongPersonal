@@ -12,13 +12,13 @@
 // shared libraries
 #include <graphx.h>
 #include <keypadc.h>
-#include <decompress.h>
+// #include <decompress.h>
 
 // donkeykong stuff
 #include "images.h"
-#include "gfx/kong_gfx.h"
-#include "gfx/rletsprites_gfx.h"
-#include "gfx/sprites_gfx.h"
+// #include "gfx/kong_gfx.h"
+// #include "gfx/rletsprites_gfx.h"
+#include "gfx/gfx.h"
 
 
 // Jumpman
@@ -35,7 +35,7 @@ gfx_rletsprite_t *firefox_sprite[2][4] =   { { fireball_left0 , fireball_left1 ,
 
 // Kong
 gfx_sprite_t *kong_goofy;
-gfx_rletsprite_t *kong_sprite[13];		  // { kong_standing, kong_left, kong_holding, kong_right, kong_arm_left, kong_arm_right, kong_climbing_left0, kong_climbing_right0, kong_climbing_left1, kong_climbing_right1, kong_onhead, kong_knockedOut, kong_teeth };
+gfx_rletsprite_t *kong_sprite[13] =          { kong_standing, kong_left, kong_holding, kong_right, kong_arm_left, kong_arm_right, kong_climbing_left0, kong_climbing_right0, kong_climbing_left1, kong_climbing_right1, kong_onhead, kong_knockedOut, kong_teeth };
 
 gfx_sprite_t *kong_crazy_eye[2] =			 { kong_eye1, kong_eye0 };
 gfx_sprite_t *kong_knockedout_sprite[2] =	 { knockedout_sprite1, knockedout_sprite0 };
@@ -70,12 +70,14 @@ gfx_rletsprite_t *pulley_left[3]  =			 { pulley_left0 , pulley_left2 , pulley_le
 static const uint8_t *kong_compressed_images[] = { kong_standing_compressed, kong_left_compressed, kong_holding_compressed, kong_right_compressed, kong_arm_left_compressed, kong_arm_right_compressed, kong_climbing_left0_compressed, kong_climbing_right0_compressed, kong_climbing_left1_compressed, kong_climbing_right1_compressed, kong_onhead_compressed, kong_knockedout_compressed };
 
 void decompress_images(void) {
-	gfx_sprite_t *tmp_ptr;
+/*	gfx_sprite_t *tmp_ptr;
 	uint8_t i = 0;
 
 	tmp_ptr = gfx_MallocSprite(46, 36);
 	do {
-		dzx7_Standard(kong_compressed_images[i], tmp_ptr);
+		dbg_printf("before zx7_Decompress\n");
+		zx7_Decompress(kong_compressed_images[i], tmp_ptr);
+		dbg_printf("after zx7_Decompress\n");
 		kong_sprite[i] = gfx_ConvertMallocRLETSprite(tmp_ptr);
 
 		if (i == 10) {	// if at kong_sprite 10 flip it and put in in kong_sprite 12
@@ -89,5 +91,5 @@ void decompress_images(void) {
 	free(tmp_ptr);
 
 	kong_goofy = gfx_MallocSprite(46, 32);
-	dzx7_Standard(kong_goofy_compressed, kong_goofy);
+	zx7_Decompress(kong_goofy_compressed, kong_goofy);*/
 }

@@ -1,28 +1,5 @@
-	.assume adl=1
+	assume adl=1
 
-	.ref _game
-	.ref _barrel
-	.ref _num_barrels
-	.ref _firefox
-	.ref _num_firefoxes
-	.ref _bouncer
-	.ref _num_bouncers
-	.ref _oilcan
-	.ref _pie
-	.ref _num_pies
-	.ref _jumpman
-	
-	.ref _hammer
-	.ref _hammerActive
-
-	.ref _wasItemHit
-	.ref _hitItemType
-	.ref _hitItemNum
-
-	.def _check_collision_jumpman
-	.def _check_collision_hammer
-	.def _check_jump_over_item
-	
 	; something about the hitboxes: http://donkeykongforum.com/index.php?topic=493.0
 
 	; 	type	  width	height
@@ -36,6 +13,9 @@
 	; oilfire	:	2	0			(2, 2 if large fire)
 
 ;-------------------------------------------------------------------------------
+	section .text
+
+	public _check_collision_jumpman
 _check_collision_jumpman:
 ; Check for collision between jumpman and a hostile
 	push	iy
@@ -53,6 +33,7 @@ _check_collision_jumpman:
 	ret
 
 ;-------------------------------------------------------------------------------
+	public _check_collision_hammer
 _check_collision_hammer:
 ; Check for collision between hammer and a hostile
 	ld	a,(_hammerActive)
@@ -87,6 +68,7 @@ aboveHead:
 	ret
 
 ;-------------------------------------------------------------------------------
+	public _check_jump_over_item
 _check_jump_over_item:
 ; Check if jumpman jumped over a hostile
 ; Returns:
@@ -509,3 +491,25 @@ data_stuff:
 
 NumObstaclesJumped:
 	DL 0
+
+
+	extern  _jumpman
+	extern _hammerActive
+
+	extern _num_firefoxes
+	extern _firefox
+
+	extern _hammer
+	extern _hitItemNum
+	extern _hitItemType
+	extern _barrel
+	extern _bouncer
+	extern _oilcan
+	extern _bu
+	extern _num_bouncers
+	extern _num_barrels
+
+	extern _pie
+	extern _num_pies
+	extern _wasItemHit
+	extern _game

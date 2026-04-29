@@ -82,7 +82,7 @@ void return_main(void) {
 	gfx_PrintStringXY("SCORE", 105, 128);
 	gfx_PrintStringXY("NAME", 161, 128);
 	gfx_Blit(gfx_buffer);
-	gfx_SetPalette(sprites_gfx_pal, sizeof(sprites_gfx_pal), 0);
+	gfx_SetPalette(main_palette, sizeof(main_palette), 0);
 
 	game_state = main_screen;
 }
@@ -228,7 +228,7 @@ void name_registration_screen(void) {
 		for (x = 161; x < 161 + 5 * 8; x += 8)
 			gfx_HorizLine_NoClip(x, 57, 6);
 		gfx_Blit(gfx_buffer);
-		gfx_SetPalette(sprites_gfx_pal, sizeof(sprites_gfx_pal), 0);
+		gfx_SetPalette(main_palette, sizeof(main_palette), 0);
 
 		waitTimer = 1;
 	}
@@ -369,7 +369,7 @@ void credits_screen(void) {
 				if (gfx_palette[COLOR_FLOOR] == 0x7C8A)
 					gfx_SetPalette(rivets_palette, 6, COLOR_FLOOR);
 				else
-					gfx_SetPalette(sprites_gfx_pal, sizeof(sprites_gfx_pal), 0);
+					gfx_SetPalette(main_palette, sizeof(main_palette), 0);
 			}
 		}
 	}

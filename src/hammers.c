@@ -67,7 +67,7 @@ void animate_hammer(void) {
 						num_hammers--;
 
 						// Restore the firefoxes' palette
-						gfx_SetPalette(sprites_gfx_pal + COLOR_LADDER + 1, 6, COLOR_LADDER + 1);
+						gfx_SetPalette(main_palette + COLOR_LADDER + 1, 6, COLOR_LADDER + 1);
 						// Restore jumpmans sprite(not the best way to do this)
 						jumpman.sprite = 0;
 						return;

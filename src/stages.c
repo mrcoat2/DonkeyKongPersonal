@@ -39,7 +39,7 @@ void initialize_stage(void) {
 
 	draw_overlay_full();
 	draw_stage(stage_data[game.stage - 1]);
-	gfx_SetPalette(sprites_gfx_pal, sizeof(sprites_gfx_pal), 0);
+	gfx_SetPalette(main_palette, sizeof(main_palette), 0);
 
 	init_jumpman(95, 231);
 
@@ -337,9 +337,9 @@ uint8_t	 stage_order[20] = {
 
 
 /* Data of all the stages */
-uint8_t *stage_data[4] = { (uint8_t*)stage_barrels_data, (uint8_t*)stage_conveyors_data, (uint8_t*)stage_elevators_data, (uint8_t*)stage_rivets_data };
+uint8_t const *stage_data[4] = { (uint8_t*)stage_barrels_data, (uint8_t*)stage_conveyors_data, (uint8_t*)stage_elevators_data, (uint8_t*)stage_rivets_data };
 
-uint8_t stage_barrels_data[] = {
+uint8_t const stage_barrels_data[] = {
 	0x00, 0xB8, 0x47, 0xB8, 0x5F,  // short ladder at top right
 	0x00, 0xB8, 0x89, 0xB8, 0xA1,  // short ladder at center right
 	0x00, 0xB8, 0xCB, 0xB8, 0xE3,  // short ladder at bottom right
@@ -368,7 +368,7 @@ uint8_t stage_barrels_data[] = {
 	0xAA,
 };
 
-uint8_t stage_conveyors_data[] = {
+uint8_t const stage_conveyors_data[] = {
 	0x00, 0x50, 0x08, 0x50, 0x48,	// kong's ladder (right)
 	0x00, 0x50, 0x70, 0x50, 0x98,	// center ladder to left of oil can fire
 	0x00, 0x50, 0xC0, 0x50, 0xE8,	// bottom level ladder #2 of 4
@@ -403,7 +403,7 @@ uint8_t stage_conveyors_data[] = {
 	0xAA,
 };
 
-uint8_t stage_elevators_data[] = {
+uint8_t const stage_elevators_data[] = {
 	0x00, 0x50, 0x08, 0x50, 0x48,	// kong's ladder (right)
 	0x00, 0x50, 0x78, 0x50, 0xC0,	// center ladder right
 	0x00, 0x40, 0x08, 0x40, 0x48,	// long's ladder (left)
@@ -441,7 +441,7 @@ uint8_t stage_elevators_data[] = {
 	0xAA,
 };
 
-uint8_t stage_rivets_data[] = {
+uint8_t const stage_rivets_data[] = {
 	0x00, 0x68, 0x70, 0x68, 0x98,	// center ladder level 3
 	0x00, 0x68, 0xC0, 0x68, 0xE8,	// bottom center ladder
 	0x00, 0x20, 0x48, 0x20, 0x70,	// top left ladder
@@ -468,7 +468,7 @@ uint8_t stage_rivets_data[] = {
 
 
 /* Data used for game intro */
-uint8_t stage_barrels_intro_data[] = {
+uint8_t const stage_barrels_intro_data[] = {
 	0x00, 0x40, 0x08, 0x40, 0x44,   // kong's ladder (left)
 	0x00, 0x50, 0x08, 0x50, 0x44,   // kong's ladder (right)
 	0x00, 0x80, 0x28, 0x80, 0x44,   // ladder to reach girl
@@ -487,13 +487,13 @@ uint8_t stage_barrels_intro_data[] = {
 	0xAA,
 };
 
-uint8_t stage_barrels_slanted_top[] = {
+uint8_t const stage_barrels_slanted_top[] = {
 	0x04, 0x90, 0x44, 0xCF, 0x44,   // clear right of kongs level girder
 	0x02, 0x90, 0x45, 0xCF, 0x48,	// 1st slanted girder at top right
 	0xAA
 };
 
-uint8_t stage_barrels_slanted[] = {
+uint8_t const stage_barrels_slanted[] = {
 	0x04, 0x10, 0x5D, 0xDF, 0x5D,  // 2nd girder down
 	0x02, 0x10, 0x69, 0xDF, 0x5D,  // 2nd slanted girder
 	0xAA,

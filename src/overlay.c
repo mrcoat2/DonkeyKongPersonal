@@ -16,7 +16,7 @@
 // donkeykong stuff
 #include "overlay.h"
 #include "defines.h"
-#include "gfx/sprites_gfx.h"
+#include "gfx/gfx.h"
 
 
 /* This flashes the 1up text every 1/4th of a second */

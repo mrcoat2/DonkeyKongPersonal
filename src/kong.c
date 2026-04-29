@@ -188,7 +188,7 @@ void draw_heart(gfx_sprite_t* sprite, uint8_t x, uint8_t y) {
 }
 
 /* Handles kong climbing ladder */
-static void climb_ladder(void) {
+static void kong_climb_ladder(void) {
 	kong.climbCounter++;
 	if ((kong.climbCounter & 7) == 0) {
 		kong.y -= 4;
@@ -271,7 +271,7 @@ void end_stage_cinematic(void) {
 	else if (game.stage != STAGE_RIVETS) {
 		switch (cinematicProgress) {
 		case 3:
-			climb_ladder();
+			kong_climb_ladder();
 
 			if (kong.y <= 48) {
 				kong.sprite = 8;
@@ -282,7 +282,7 @@ void end_stage_cinematic(void) {
 			}
 			break;
 		case 4:
-			climb_ladder();
+			kong_climb_ladder();
 
 			if (kong.y < 16) {
 				waitTimer = 0x40;
@@ -445,7 +445,7 @@ void intro_cinematic(void) {
 		cinematicProgress++;
 		break;
 	case 2:												// Kong climbing ladder with pauline
-		climb_ladder();
+		kong_climb_ladder();
 		if ((kong.climbCounter & 15) == 0) {
 			remove_ladder(kong.y + 15);
 		}

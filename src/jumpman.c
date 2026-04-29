@@ -46,9 +46,9 @@ void init_jumpman(uint24_t x, uint8_t y) {
 
 
 jumpman_t jumpman;
-void handle_jumping(jumpman_t *jumpman);
-void handle_bouncing(jumpman_t *jumpman);
-uint8_t check_jump_over_item(void);
+extern void handle_jumping(jumpman_t *jumpman);
+extern void handle_bouncing(jumpman_t *jumpman);
+extern uint8_t check_jump_over_item(void);
 
 void move_jumpman(void) {
 	kb_key_t key;

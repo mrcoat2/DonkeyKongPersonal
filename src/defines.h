@@ -14,7 +14,7 @@
 
 void waitTicks(uint8_t ticks);
 void game_loop(void);
-extern const void(*game_state)(void);
+extern void(*game_state)(void);
 void handle_waitTimer(void);
 void handle_waitTimer1(void);
 
@@ -26,7 +26,7 @@ enum COLOR {
 	COLOR_RED			= 0x10, // 255,  0,  0
 	COLOR_BLUE			= 0x18, //  0,  0,255
 	COLOR_WHITE			= 0x0B, // 255,255,255
-	COLOR_COLLISION		= 0x05, // 151,  0,  0
+	// COLOR_COLLISION		= 0x05, // 151,  0,  0
 	COLOR_RED_DARK		= 0x0E, // 151,  1,  0
 	COLOR_LIGHT_BLUE	= 0x17,	//	 0,255,255 
 

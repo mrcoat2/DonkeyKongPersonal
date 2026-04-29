@@ -1,0 +1,60 @@
+palettes:
+  - name: main_palette
+    images:
+      - main_palette.png
+
+converts:
+  - name: sprites_gfx
+    palette: main_palette
+    # compress: none
+    images:
+      - other/*
+      - pauline/*
+      - tiles/*
+      - kong/knockedout_sprite0.png
+      - kong/knockedout_sprite1.png
+      - kong/kong_eye0.png
+      - kong/kong_eye1.png
+
+  - name: rletsprites_gfx
+    palette: main_palette
+    # compress: none
+    style: rlet
+    images:
+      - barrels/*
+      - bonus/*
+      - conveyors/*
+      - elevators/*
+      - fires/*
+      - hammer/*
+      - jumpman/*
+      - oilcan/*
+
+  - name: kong_gfx
+    palette: main_palette
+    # compress: none
+    images:
+      - kong/kong_climbing_right0.png
+      - kong/kong_climbing_right1.png
+      - kong/kong_climbing_left0.png
+      - kong/kong_climbing_left1.png
+      - kong/kong_knockedout.png
+      - kong/kong_arm_right.png
+      - kong/kong_arm_left.png
+      - kong/kong_standing.png
+      - kong/kong_holding.png
+      - kong/kong_onhead.png
+      - kong/kong_goofy.png
+      - kong/kong_right.png
+      - kong/kong_left.png
+
+outputs:
+  - type: c
+    include-file: gfx.h
+    palettes:
+      - main_palette
+    converts:
+      - sprites_gfx
+      - rletsprites_gfx
+      - kong_gfx
+    directory: ../src/gfx

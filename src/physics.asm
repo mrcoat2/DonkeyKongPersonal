@@ -1,10 +1,10 @@
-	.assume adl=1
-
-	.def _handle_jumping
-	.def _handle_bouncing
+	assume adl=1
 
 ;-------------------------------------------------------------------------------
-_handle_jumping
+	section .text
+
+	public _handle_jumping
+_handle_jumping:
 	pop hl			; get return address in de
 	ex (sp),ix		; store the given struct address in ix
 	push hl			; push the return address back in the stack
@@ -63,7 +63,8 @@ right:
 
 
 ;-------------------------------------------------------------------------------
-_handle_bouncing
+	public _handle_bouncing
+_handle_bouncing:
 	pop hl			; get return address in de
 	ex (sp),ix		; store the given struct address in ix
 	push hl			; push the return address back in the stack

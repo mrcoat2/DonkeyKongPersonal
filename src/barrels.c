@@ -122,7 +122,7 @@ void move_barrels(void) {
 					}
 
 					// Barrel reached the edge of a girder
-					if (this_barrel->x > 259 || this_barrel->x < 59 && gfx_GetPixel(this_barrel->x, this_barrel->y + 2) > COLOR_COLLISION) {	// Should be < 58, but doen't work because of wrong girder detection. (I can also check the heigt of the barrels instead of checking a pixel)
+					if (this_barrel->x > 259 || (this_barrel->x < 59 && gfx_GetPixel(this_barrel->x, this_barrel->y + 2) > COLOR_COLLISION)) {	// Should be < 58, but doen't work because of wrong girder detection. (I can also check the heigt of the barrels instead of checking a pixel)
 						this_barrel->isJumping = true;
 
 						if (this_barrel->x > 259) {	// Right edge
